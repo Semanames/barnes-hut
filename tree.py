@@ -2,7 +2,7 @@ from typing import List
 
 from matplotlib.patches import Rectangle
 
-from body_dynamics import Body
+from body import Body
 
 
 class Node:

@@ -3,7 +3,7 @@ from typing import List
 import numpy as np
 from matplotlib import pyplot as plt
 
-from body_dynamics import Body
+from body import Body
 from tree import Node, Tree
 
 
