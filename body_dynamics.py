@@ -18,7 +18,7 @@ class EulerPusher(BodyPusher):
     def push(self, bodies_status, n_steps):
         for i in range(n_steps):
             bodies_status[:, 1:3] += bodies_status[:, 3:5] * self.dt
-            bodies_status[:, 3:5] += (bodies_status[:, 5:6]/bodies_status[:, 0])*self.dt
+            bodies_status[:, 3:5] += (bodies_status[:, 5:7]/bodies_status[:, 0:1])*self.dt
 
 
 class LeapFrogPusher(BodyPusher):
@@ -28,7 +28,7 @@ class LeapFrogPusher(BodyPusher):
         self.is_pre_pushed = False
 
     def _prepush(self, bodies_status):
-        bodies_status[:, 3:5] += (bodies_status[:, 5:6] / bodies_status[:, 0]) * (self.dt/2)
+        bodies_status[:, 3:5] += (bodies_status[:, 5:7] / bodies_status[:, 0]) * (self.dt/2)
         self.is_pre_pushed = True
 
     def push(self, bodies_status, n_steps):
@@ -37,7 +37,7 @@ class LeapFrogPusher(BodyPusher):
 
         for i in range(n_steps):
             bodies_status[:, 1:3] += bodies_status[:, 3:5] * self.dt
-            bodies_status[:, 3:5] += (bodies_status[:, 5:6]/bodies_status[:, 0])*self.dt
+            bodies_status[:, 3:5] += (bodies_status[:, 5:7]/bodies_status[:, 0])*self.dt
 
 
 if __name__ == '__main__':

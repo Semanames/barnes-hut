@@ -40,7 +40,8 @@ class ForceCalculator:
     @staticmethod
     def gravitational_force(node: Node, body: Body):
 
-        G = 6.67e-11
+        G = 1 #6.67e-11
+        #TODO gravitational constant should be scalable
 
         M = node.mass
         Rx = node.mass_center_x
